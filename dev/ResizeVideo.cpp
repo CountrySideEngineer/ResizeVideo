@@ -30,7 +30,7 @@ int main(int argc, TCHAR** argv)
 	if (!Capture.isOpened()) {
 		_tprintf(_T("Can not open %s\r\n"), InputFileName);
 
-		//return 0;
+		return 0;
 	}
 
 	double ImageFps = Capture.get(cv::CAP_PROP_FPS);	//Same that of source data.
@@ -61,6 +61,8 @@ int main(int argc, TCHAR** argv)
 
 	Capture.release();
 	Writer.release();
+
+	cv::destroyAllWindows();
 
     return 0;
 }
